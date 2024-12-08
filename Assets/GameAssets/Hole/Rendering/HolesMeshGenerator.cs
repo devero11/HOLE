@@ -21,10 +21,11 @@ public class HolesMeshGenerator : MonoBehaviour
     {
         hole2D.transform.position = vec;
         Vector2[] PointPositions = hole2D.GetPath(0);
-
+        
         for (int i = 0; i < PointPositions.Length; i++)
-        {
+        {   PointPositions[i] *= holes[index-1].transform.localScale;
             PointPositions[i] += (Vector2)hole2D.transform.position;
+            
         }
 
         ground2D.pathCount = 11;

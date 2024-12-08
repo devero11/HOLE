@@ -5,14 +5,6 @@ public class playerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float speed = 5f;
-    public int score = 0;
-    public string playerId = "Player";
-
-    void Start()
-    {
-        gameObject.layer = LayerMask.NameToLayer(playerId);
-    }
-
     void FixedUpdate()
     {
         Vector3 cameraForward = Camera.main.transform.forward;
@@ -35,8 +27,4 @@ public class playerController : MonoBehaviour
         transform.position += movement * speed * Time.fixedDeltaTime;
     }
 
-    public void UpdateSizeBasedOnScore()
-    {
-
-    }
 }
