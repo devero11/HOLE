@@ -4,18 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
-{   
+{
+    public int playerScore = 1;
 
-    public int score = 1;
+    public void OnTriggerEnter(Collider col)
+    {
 
 
-
-
-    public void OnTriggerEnter(Collider col){
-        if(col.tag == "prop")
+        if (col.tag == "prop")
         {
             Prop prop = col.GetComponent<Prop>();
-            if(score >= prop.thresholdScore)
+            Debug.Log($"Player Score: {playerScore}. Prop ThresholdScore: {prop.propThresholdScore}");
+            if (playerScore >= prop.propThresholdScore)
                 prop.UnfreezeRigidbody();
         }
     }
